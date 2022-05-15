@@ -1,15 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './Pages/Home/Home';
-import { Route, Routes } from 'react-router-dom';
-import About from './Pages/About/About';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { publicRoutes } from "./Routes/publicRoutes";
+
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
+        {
+          publicRoutes.map(({path, Element }, index)=> (<Route key={index} path={path} element={<Element></Element>} />))
+        }
       </Routes>
     </>
   );
